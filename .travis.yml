@@ -3,7 +3,7 @@ sudo: false # faster builds
 before_install:
 - chmod +x mvnw
 script:
-- "./mvnw clean install -B"
+# - "./mvnw clean install -B"
 - "./mvnw clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar"
 after_success:
 - bash <(curl -s https://codecov.io/bash)
@@ -11,4 +11,8 @@ addons:
   sonarcloud:
     organization: manimekalai8797-github
     token:
-      secure: 88d571354e631041f3e2c1166f24cfd387ca71c6      
+      secure: 88d571354e631041f3e2c1166f24cfd387ca71c6
+deploy:
+  provider: heroku
+  api_key: 4c5b57ba-e849-428a-ab31-5cb5e3bb2c77
+  app: zigwheels         
