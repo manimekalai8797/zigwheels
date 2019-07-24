@@ -4,6 +4,7 @@ before_install:
 - chmod +x mvnw
 script:
 - "./mvnw clean install -B"
+- "./mvnw clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar"
 after_success:
 - bash <(curl -s https://codecov.io/bash)
 addons:
