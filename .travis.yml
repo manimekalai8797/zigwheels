@@ -2,10 +2,12 @@ language: java
 sudo: false # faster builds
 before_install:
 - chmod +x mvnw
+script:
+- "./mvnw clean install -B"
 after_success:
 - bash <(curl -s https://codecov.io/bash)
 addons:
   sonarcloud:
     organization: manimekalai8797-github
     token:
-      secure: 88d571354e631041f3e2c1166f24cfd387ca71c6
+      secure: 88d571354e631041f3e2c1166f24cfd387ca71c6      
