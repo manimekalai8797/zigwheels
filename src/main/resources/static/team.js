@@ -3,7 +3,7 @@ var app = new function () {
     var mode = "";
     var url = "http://zigwheels.herokuapp.com/api/teams/";
     // http://localhost:8080/api/teams/
-    var url = "http://localhost:8080/api/teams/";
+    // var url = "http://localhost:8080/api/teams/";
     this.FetchAll = function () {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
