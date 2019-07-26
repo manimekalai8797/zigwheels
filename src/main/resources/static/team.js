@@ -1,7 +1,7 @@
 var app = new function () {
     var countries = [];
     var mode = "";
-    var url = "http://zigwheels.herokuapp.com/api/teams/";
+    var url = "https://zigwheels.herokuapp.com/api/teams/";
     // http://localhost:8080/api/teams/
     // var url = "http://localhost:8080/api/teams/";
     this.FetchAll = function () {
