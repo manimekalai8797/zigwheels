@@ -1,12 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Document</title>
+ <script src="team.js"></script>
 </head>
-<body>
-    index page
+<body onload="app.FetchAll()">
+ Team
+ <hr>
+ <form action="javascript:void(0);" method="POST" onsubmit="app.saveorupdate()">
+ <label>Team id: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+ <input type="text" name="teamid" id="teamid"> <br>
+ <label>Team name: </label>
+ <input type="text" name="teamname" id="teamname"><br>
+ <button id="btn">Add</button>
+ </form>
+ <hr>
+ <table>
+ <th>Id</th>
+ <th>Name</th>
+ <th>Actions</th>
+ <tbody id="countries"> 
+ </tbody>
+</table>
 </body>
 </html>

@@ -29,7 +29,7 @@ public class TeamServiceImp implements TeamService {
         return teamRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Not found"));
     }
 
-    public Team updateTeam(Long id,Team team) {
+    public Team updateTeam(Long id, Team team) {
         Team t = teamRepository.getOne(id);
         t.setTeamname(team.getTeamname());
         return teamRepository.save(t);
