@@ -17,19 +17,17 @@ var app = new function () {
         xhttp.send();
     };
     this.printtable = function () {
-        // console.log(countries);
-        var data = '';
-        for (var i in countries) {
-            data += '<tr>';
-            data += '<td>' + countries[i].teamid + '</td>';
-            data += '<td>' + countries[i].teamname + '</td>';
-            data += '<td><button onclick="app.Edit(' + countries[i].teamid + ')">Edit</button></td>';
-            data += '<td><button onclick="app.Delete(' + countries[i].teamid + ')">Delete</button></td>';
-            data += '</tr>';
-            data += '<br>';
-            data += '<br>';
+        var html = "<table class='table table-bordered'>";
+        for (var i  in countries) {
+            html += "<tr>";
+            html += "<td>" + countries[i].teamid + "</td>";
+            html += "<td>" + countries[i].teamname + "</td>";
+            html += '<td><button class="glyphicon glyphicon-pencil   btn fa-edit "  onclick="app.Edit(' + countries[i].teamid + ')"></button></td>';
+            html += '<td><button class="glyphicon glyphicon-trash btn fa-delete "  onclick="app.Delete(' + countries[i].teamid + ')"></button></td>';
+            html += "</tr>";
         }
-        document.getElementById("countries").innerHTML = data;
+        html += "</table>";
+        document.getElementById("countries").innerHTML = html;
     };
 
     this.Edit = function (teamid) {
@@ -67,11 +65,11 @@ var app = new function () {
         }
         else {
             //alert("update called");
-            
+
             // var updateTeam = {};
             // updateTeam.teamid=id;
             // updateTeam.teamname=name;
-            
+
             var updateTeam = { "teamid": id, "teamname": name };
             //alert(updateTeam);
 
@@ -81,7 +79,7 @@ var app = new function () {
                     app.FetchAll();
                 }
             }
-            xhr.open("PUT", url+ updateTeam.teamid , true);
+            xhr.open("PUT", url + updateTeam.teamid, true);
             xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
             //alert(JSON.stringify(updateTeam));
             xhr.send(JSON.stringify(updateTeam));
@@ -97,7 +95,7 @@ var app = new function () {
     this.Delete = function (teamid) {
         // console.log("delete called " + id);
         var xhr = new XMLHttpRequest();
-        xhr.open("DELETE", url +teamid, true);
+        xhr.open("DELETE", url + teamid, true);
         xhr.onload = function () {
             if (xhr.readyState == 4 && xhr.status == "204") {
                 app.FetchAll();
